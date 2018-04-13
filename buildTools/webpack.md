@@ -122,61 +122,61 @@
 
     #### 4.1 css打包  
         
-        `style-loader` 处理css文件中的url()等
-        `css-loader` 将css插入到页面的style标签  
+    `style-loader` 处理css文件中的url()等  
+    `css-loader` 将css插入到页面的style标签  
     
-            // css必须安装这两个loader
-            cnpm install style-loader css-loader -D  // "-D"表示"--save-dev"
+        // css必须安装这两个loader
+        cnpm install style-loader css-loader -D  // "-D"表示"--save-dev"
 
-        loader配置，在wepack.congig.js文件下配置module
+    loader配置，在wepack.congig.js文件下配置module
 
-            const config = {
-                module: {
-                    rules: [
-                        {
-                            test: /\.css$/,
-                            use: ['style-loader', 'css-loader']
-                        }
-                    ]
-                }, 
-            }    
+        const config = {
+            module: {
+                rules: [
+                    {
+                        test: /\.css$/,
+                        use: ['style-loader', 'css-loader']
+                    }
+                ]
+            }, 
+        }    
 
-        loader还有其他的几种写法：
+    **loader还有以下的几种写法：**
 
-        1.上面写的，直接传递字符串组， loader 属性的简写方式   
-        2.把use换成loader
-
-             const config = {
-                module: {
-                    rules: [
-                        {
-                            test: /\.css$/,
-                            loader: ['style-loader', 'css-loader']
-                        }
-                    ]
-                }, 
-            }            
-
-        3.use + loader属性的写法
+    1.上面写的，直接传递字符串组， loader 属性的简写方式   
+    2.把use换成loader
 
             const config = {
-                module: {
-                    rules: [
-                        {
-                            test: /\.css$/,
-                            use: [
-                                'style-loader',
-                                {
-                                    loader: 'css-loader',
-                                    options: {
-                                        importLoaders: 1
-                                    }
+            module: {
+                rules: [
+                    {
+                        test: /\.css$/,
+                        loader: ['style-loader', 'css-loader']
+                    }
+                ]
+            }, 
+        }            
+
+    3.use + loader属性的写法
+
+        const config = {
+            module: {
+                rules: [
+                    {
+                        test: /\.css$/,
+                        use: [
+                            'style-loader',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    importLoaders: 1
                                 }
-                            ]
-                        }
-                    ]
-                }, 
-            } 
+                            }
+                        ]
+                    }
+                ]
+            }, 
+        } 
 
     #### 4.2 Less文件的打包和分离
 
