@@ -1,3 +1,3 @@
-# myLearning
+# Learning
 
-### 学习笔记, 总结
+学习笔记, 总结
